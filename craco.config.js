@@ -1,9 +1,11 @@
 module.exports = {
   webpack: {
-    configure: (webpackConfig) => {
+    configure: (webpackConfig, { env, paths }) => {
       webpackConfig.resolve.fallback = {
-        buffer: require.resolve("buffer/"),
+        ...webpackConfig.resolve.fallback,
+        buffer: require.resolve('buffer/'),
       };
+
       return webpackConfig;
     },
   },
